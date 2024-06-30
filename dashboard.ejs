@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <h1>Welcome, <%= username %>!</h1>
+  <p>You have successfully logged in.</p>
+
+  <form action="/dashboard" method="post">
+    <label for="foodItem">  Enter a food item</label>
+    <input type="text" id="foodItem" name="foodItem" required>
+    <button type="submit">Get Nutrition Info</button>
+  </form>
+
+  <% if (nutrition) { %>
+    <h2>Nutrition Information for <%= nutrition[0].name %>:</h2>
+    <ul>
+      <li>Fat: <%= nutrition[0].fat_total_g %> g</li>
+      <li>Carbohydrates: <%= nutrition[0].carbohydrates_total_g %> g</li>
+      <li>Sugar: <%= nutrition[0].sugar_g %> g</li>
+      <li>potassium: <%= nutrition[0].potassium_mg %> mg</li>
+      <li>cholestrol: <%= nutrition[0].cholestrol_mg %> mg</li>
+      <li>fiber: <%= nutrition[0].fiber_g %> g</li>
+    </ul>
+  <% } %>
+
+  <p><a href="/logout">Logout here</a></p>
+</body>
+</html>
